@@ -115,6 +115,10 @@ html[data-theme="dark"]  {
       }
     }
 
+    .new-icon {
+      color: $dark-background-color;
+    }
+
     .post-list {
       & > li:not(:last-child) {
         border-bottom: 1px solid #545454;
@@ -139,6 +143,9 @@ html[data-theme="dark"]  {
       a:after {
         color: $dark-background-color;
       }
+    }
+    .new-icon {
+      color: $dark-background-color;
     }
   }
 

@@ -3,6 +3,10 @@
 {%- endif -%}
 
 {%- assign post = item -%}
+{% assign post_date = post.date | date: "%s" %}
+{% assign today = site.time | date: "%s" %}
+{% assign diff_seconds = today | minus: post_date %}
+{% assign diff_days = diff_seconds | divided_by: 86400 %}
 
 {% assign date_format = site.yat.date_format | default: "%b %-d, %Y" %}
 <span class="post-meta">{{ post.date | date: date_format }}</span>
@@ -10,4 +14,7 @@
   <a class="post-link" href="{{ post.url | relative_url }}">
     {{ post.title | escape }}
   </a>
+  {% if diff_days <= 3 %}
+    <span class="new-icon">NEW</span>
+  {% endif %}
 </span>
